@@ -15,10 +15,17 @@
                 <input class="form-control" type="text" name="keyword" th:value="${keyword}">
                 <button type="submit" class="btn btn-outline-info">Chercher</button>
             </form>
-            <table>
+            <table class="table">
                 <thead>
-                <th>ID</th> <th>Nom</th> <th>Date</th> <th>Malade</th> <th>Score</th>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Date</th>
+                    <th>Malade</th>
+                    <th>Score</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr th:each="p : ${listPatients}">
                     <td th:text="${p.id}"></td>
                     <td th:text="${p.nom}"></td>
@@ -26,16 +33,18 @@
                     <td th:text="${p.malade}"></td>
                     <td th:text="${p.score}"></td>
                 </tr>
-                </thead>
+                </tbody>
             </table>
-            <ul class="nav nav-pills">
-                <li th:each="page,status:${pages}">
-                    <a th:href="@{/index(page=${item.index}, keyword=${keyword})}"
-                       th:class="${(currentPage == status.index) ? 'btn btn-info ms-1' : 'btn btn-outline-info ms-1'}"
-                       th:text="${status.index}">
-                    </a>
-                </li>
-            </ul>
+            <div class="mt-3">
+                <ul class="pagination">
+                    <li th:each="page,status:${pages}" class="page-item">
+                        <a th:href="@{/index(page=${status.index}, keyword=${keyword})}"
+                           th:class="${(currentPage == status.index) ? 'page-link active' : 'page-link'}"
+                           th:text="${status.index + 1}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
