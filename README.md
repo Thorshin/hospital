@@ -1,8 +1,3 @@
-Of course! Here's a **nice `README.md`** you can use for your project:  
-(I'll keep it clean and professional, like something your professor would love!)
-
----
-
 # Demo Spring MVC Thymeleaf Spring Data JPA
 
 This project is a simple demo of a **Spring Boot MVC** application using:
